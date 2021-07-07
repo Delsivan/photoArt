@@ -11,6 +11,8 @@ import { PhotoService } from '../photo/photo.service';
 export class PhotoListComponent implements OnInit {
   
   photos: IPhoto[] = [];
+  filter: string = '';
+
   
   constructor(
     private photoService: PhotoService,
@@ -23,10 +25,16 @@ export class PhotoListComponent implements OnInit {
       .snapshot
       .params
       .userName;
-      
+
       this.photoService
         .listFromUser(userName)
         .subscribe(photos => this.photos = photos);
+  }
+  onKeyUp(target : any) {
+    if(target instanceof EventTarget) {
+      var elemento = target as HTMLInputElement;
+      this.filter = elemento.value;
+    }
   }
 
 }
