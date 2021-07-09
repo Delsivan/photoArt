@@ -12,3 +12,9 @@
 
 <pa-photos [photos]="photos | filterByDescription: filter"></pa-photos>
 
+
+<pa-load-button
+    (click)="load()" 
+    [hasMore]="hasMore">
+</pa-load-button>
+    
