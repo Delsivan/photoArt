@@ -1,5 +1,10 @@
-<pa-search></pa-search>
-<pa-photos [photos]="photos | filterByDescription: filter"></pa-photos>
+<pa-search 
+    (onTyping)="filter = $event" [value]="filter">
+</pa-search>
+
+<pa-photos 
+    [photos]="photos | filterByDescription: filter">
+</pa-photos>
 
 <pa-load-button
     (click)="load()" 
